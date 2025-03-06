@@ -1,0 +1,14 @@
+server{
+	listen 8000;
+	server_name localhost;
+	root /var/www/html;
+	index my_site.html;
+
+	location /api/ {
+
+		proxy_pass http://localhost:8000;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $prxy_add_x_forwarded_for;
+	}
+}
