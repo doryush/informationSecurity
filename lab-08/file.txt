@@ -1,0 +1,8 @@
+i -----> insert mode 
+:wq! ----> write and quit 
+:q! -----> force quit 
+:%d! -----> delete all content 
+dd -----> delete current line
+yy ----> copy current line
+p ----> paste current line
+
