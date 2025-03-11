@@ -1,0 +1,7 @@
+The following file is designed for the list of requirements for the Final Project on the course "Information Security" at the American University of Central Asia. 
+
+It was completed by Doryush Normatov - senior year student. For any questions, please contact me on normatov_d@auca.kg
+
+Task for the final project:
+
+Secure Password Generator – Create a CLI tool that generates strong, random passwords with customization options. Command should take multiple options e.g. length of password, complexity, included symbols and so on.
