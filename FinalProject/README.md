@@ -29,7 +29,9 @@ How many passwords to generate? 3
 KLp^6$D3!rGq
 R#n2&L9z*E+$
 Do you want to save passwords to a file? (y/n): y
+
 Passwords saved to passwords.txt
+```bash
 
 # FILES
 
