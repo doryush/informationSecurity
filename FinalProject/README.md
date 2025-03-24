@@ -32,6 +32,8 @@ Do you want to save passwords to a file? (y/n): y
 
 Passwords saved to passwords.txt
 
+```markdown
+
 ###  FILES
 
 password_generator.py: Main script
