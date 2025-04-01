@@ -3,51 +3,50 @@ import string
 from colorama import Fore, Style
 import pyfiglet
 
-def generate_password(length=12, use_upper=True, use_lower=True, use_digits=True, use_symbols=True):
-    character_pool = ""
-    if use_upper:
-        character_pool += string.ascii_uppercase
-    if use_lower:
-        character_pool += string.ascii_lowercase
-    if use_digits:
-        character_pool += string.digits
-    if use_symbols:
-        character_pool += string.punctuation
+def generatePassword(length=7, useUpper=True, useLower=True, useDigits=True, useSymbols=True):
+    passwordFull = ""
+    if useUpper == True:
+        passwordFull += string.ascii_uppercase
+    if useLower == True:
+        passwordFull += string.ascii_lowercase
+    if useDigits == True:
+        passwordFull += string.digits
+    if useSymbols == True:
+        passwordFull += string.punctuation
     
-    if not character_pool:
-        raise ValueError("At least one character type must be selected.")
-    
-    return ''.join(random.choice(character_pool) for _ in range(length))
+    if not passwordFull:
+        raise ValueError("Please choose at least one character type.")   
+    return ''.join(random.choice(passwordFull) for _ in range(length))
 
-def save_passwords_to_file(passwords, filename="passwords.txt"):
+def savePasswords(passwords, filename="passwordsGenerated.txt"):
     with open(filename, "a") as file:
         for password in passwords:
             file.write(password + "\n")
-    print(Fore.GREEN + f"Passwords saved to {filename}")
+    print(Fore.GREEN + f"Passwords have been saved to {filename}")
 
-def user_input():
+def userInput():
     try:
         print(Fore.CYAN + pyfiglet.figlet_format("Pass Generator"))
-        length = int(input("Enter password length: "))
-        use_upper = input("Include uppercase letters? (y/n): ").strip().lower() == "y"
-        use_lower = input("Include lowercase letters? (y/n): ").strip().lower() == "y"
-        use_digits = input("Include digits? (y/n): ").strip().lower() == "y"
-        use_symbols = input("Include special characters? (y/n): ").strip().lower() == "y"
-        num = int(input("How many passwords to generate? "))
+        lengthForPass = int(input("Enter password length: "))
+        useUpper = input("Include uppercase letters? (y/n): ").strip().lower() == "y"
+        useLower = input("Include lowercase letters? (y/n): ").strip().lower() == "y"
+        useDigits = input("Include digits? (y/n): ").strip().lower() == "y"
+        useSymbols = input("Include special characters? (y/n): ").strip().lower() == "y"
+        num = int(input("How many passwords do you want to generate? "))
         
-        passwords = [generate_password(length, use_upper, use_lower, use_digits, use_symbols) for _ in range(num)]
+        passwords = [generatePassword(lengthForPass, useUpper, useLower, useDigits, useSymbols) for _ in range(num)]
         
         for pwd in passwords:
-            print(Fore.YELLOW + pwd)
+            print(Fore.GREEN + pwd)
         
         save = input("Do you want to save passwords to a file? (y/n): ").strip().lower() == "y"
-        if save:
-            save_passwords_to_file(passwords)
+        if save == True:
+            savePasswords(passwords)
     except ValueError as e:
         print(Fore.RED + f"Error: {e}")
 
 def main():
-    user_input()
+    userInput()
 
 if __name__ == "__main__":
     main()
