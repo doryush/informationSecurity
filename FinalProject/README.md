@@ -49,3 +49,5 @@ Email: normatov_d@auca.kg
 Institution: American University of Central Asia
 
 Course: Information Security (Final Project)
+
+Link for the video description:  https://drive.google.com/drive/folders/1g3yymss3Cn0qL6PNV_FIillSZ8nOHWmF?usp=share_link
